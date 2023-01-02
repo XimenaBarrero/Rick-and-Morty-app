@@ -1,0 +1,296 @@
+.html {
+    overflow: hidden;
+    background-color: rgb(9, 44, 44);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App{
+    font-family: 'Roboto', sans-serif; 
+    background-color: rgb(9, 44, 44);
+    color:white
+}
+
+.header{
+    width: 100%;
+    height: 400px;
+    background-image: url(./images/morty.png);
+    position: relative;
+    font-weight: 110;
+}
+
+.wrapper{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    padding-left: 10px;
+    font-weight: 100;
+}
+
+/* search box */
+.filter{
+color: #7E7E7E;
+padding-left: 45px;
+max-width: 200px;
+list-style: none;
+font-size: 1rem;
+line-height: 1.6;
+grid-template-columns: auto auto;
+position: relative;
+}
+
+.filter > li:hover{
+    color: white;
+    font-size: 1rem;
+}
+
+.button{
+    font-family: 'Roboto', sans-serif; 
+    text-decoration: none;
+    padding: 10px 40px;
+    font-size: 1rem;
+    position: relative;
+    margin: 30px 0px;
+    background-color: #062226;
+    color: #7E7E7E;
+    border-radius: 30px;
+    border-color:transparent;
+    transition: transform 0.3s ease;
+}
+
+.button::after, .button::before{
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: #062226;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.button:hover{
+    transform: translate(-12px, -12px);
+}
+
+.button:hover::after{
+    transform: translate(6px, 6px);
+}
+
+.button:hover::before{
+    transform: translate(12px, 12px);
+}
+
+/* cards sample */
+.resident-card{
+    background-color: #062226;
+    color: white;
+    border-radius: 25px;
+    max-width: 300px;
+    line-height: 1.6;
+}
+
+.resident-card-header{
+    position: relative;
+}
+
+/* location cards */
+.location-residents{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.location-box{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.resident-card-location{
+    display: flex;
+    justify-content: center;
+    background-color: #062226;
+    padding: 5px 10px;
+    border-radius: 25px;
+    max-width: 300px;
+    line-height: 1.6;
+}
+
+.resident-card-location-header{
+    font-weight: 100;
+    color: white;
+    font-size: 210%;
+    padding: 15px;
+}
+
+.resident-card-location-section > ul {
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.resident-card-location-section >ul > li{
+    display: flex;
+    flex-direction: column;
+    color:white;
+    font-weight: 500;
+    font-size: 110%;
+}
+
+.resident-card-location span{
+    color: #7E7E7E;
+}
+
+.character-pic{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.resident-card-status {
+    position:absolute;
+    top:20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding:5px 10px;
+    border-end-end-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #062226;
+}
+
+.circle{
+    width: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+.circle.Alive{
+    background-color: #4AB648;
+}
+
+.circle.Dead{
+    background-color: #B94343;
+}
+
+.circle.unknown{
+    background-color: #938686;
+}
+
+.resident-card-body{
+    padding: 15px;
+}
+
+
+.resident-card-body span{
+    color: #7E7E7E;
+}
+.resident-card-body > ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.resident-card-body >ul > li{
+    display: flex;
+    flex-direction: column;
+    color:white;
+    font-weight: 500;
+}
+
+.errorMessage{
+    background-color:#B94343;
+    padding: 5px 15px;
+    color: white;
+    position: absolute;
+    top:5px;
+    right: -100%;
+    width: max-content;
+    border-radius: 10px;
+    animation: 0.3s ease-in forwards showError;
+}
+
+.errorMessage p {
+    margin: 0;
+}
+
+.footer{
+    color: white;
+    display: flex;
+    justify-content: center;
+    line-height: 1.6;
+    font-family: 'Roboto', sans-serif; 
+}
+
+@keyframes showError {
+    0%{right: -100%}
+    50%{right:-50%}
+    100%{right: 10px}
+}
+
+.search-box {
+height: 45px;
+display: flex;
+cursor: pointer;
+padding: 10px 20px;
+background:  rgb(9, 44, 44);
+border-radius: 30px;
+align-items: center;
+}
+
+.search-box:hover input{
+    width: 250px;
+}
+
+.search-box input{
+    width: 0;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+    font-family: 'Roboto', sans-serif; 
+    color: white;
+}
+
+@media screen and ( min-width:1024px ){
+    .resident-card-location{
+        min-width: 300px;
+        max-width: 100%;
+    }
+
+    .resident-card-location-section >ul > li{
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media screen and ( min-width:860px ) {
+    .resident-card-location{
+        min-width: 300px;
+        max-width: 100%;
+    }
+
+    @media screen and ( min-width:600px ){
+        .resident-card-location{
+            min-width: 300px;
+            max-width: 100%;
+        }
+    }
+}
